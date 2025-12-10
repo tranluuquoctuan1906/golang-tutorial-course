@@ -3,6 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, World!")
+	var fullName = "John Doe"
+	fmt.Println("Full Name:", fullName)
+	var age int
+	fmt.Println("Age:", age)
 	randomUser()
 }
