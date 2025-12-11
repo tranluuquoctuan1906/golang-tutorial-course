@@ -1,17 +1,12 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
 
 func main() {
-	var fullName string
+	var fullName, address string
 	fmt.Print("Enter your full name: ")
-	scanner := bufio.NewScanner(os.Stdin)
-	if scanner.Scan() {
-		fullName = scanner.Text()
-	}
-	fmt.Printf("Hello, %s!\n", fullName)
+	fmt.Scanln(&fullName)
+	fmt.Print("Enter your address: ")
+	fmt.Scanln(&address)
+	fmt.Printf("Hello, %s! Your address is %s.\n", fullName, address)
 }
