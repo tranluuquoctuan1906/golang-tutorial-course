@@ -3,13 +3,14 @@ package main
 func main() {
 	score := 9
 
-	if score > 8 {
+	switch {
+	case score > 8:
 		println("Good score")
-	} else if score <= 8 && score >= 6 {
+	case score > 6:
 		println("Average score")
-	} else if score < 6 && score >= 4 {
+	case score > 4:
 		println("Below average score")
-	} else {
+	default:
 		println("Poor score")
 	}
 }
