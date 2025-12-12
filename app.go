@@ -1,11 +1,15 @@
 package main
 
-import "fmt"
-
 func main() {
-	s1 := 15
-	s2 := 27
+	score := 9
 
-	equal := s1 == s2
-	fmt.Printf("Are s1 and s2 equal? %t\n", equal)
+	if score > 8 {
+		println("Good score")
+	} else if score <= 8 && score >= 6 {
+		println("Average score")
+	} else if score < 6 && score >= 4 {
+		println("Below average score")
+	} else {
+		println("Poor score")
+	}
 }
