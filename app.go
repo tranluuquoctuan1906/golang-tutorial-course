@@ -1,20 +1,17 @@
 package main
 
 import (
-	"slices"
 	"strconv"
 	"strings"
 )
 
 func main() {
 	var xhtml strings.Builder
-	numbers := []int{6, 48, 75, 89}
-	for i := 1; i <= 100; i++ {
-		if slices.Contains(numbers, i) {
-			continue
-		}
+	for i := 1; i <= 100; i += 2 {
 		xhtml.WriteString(strconv.Itoa(i))
-		if i != 100 {
+		if (i+1)%3 == 0 {
+			xhtml.WriteString("\n")
+		} else if i != 99 {
 			xhtml.WriteString(",")
 		}
 	}
