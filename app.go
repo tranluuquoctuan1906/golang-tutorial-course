@@ -1,16 +1,25 @@
 package main
 
-func main() {
-	score := 9
+import "strconv"
 
-	switch {
-	case score > 8:
-		println("Good score")
-	case score > 6:
-		println("Average score")
-	case score > 4:
-		println("Below average score")
-	default:
-		println("Poor score")
+func main() {
+	xhtml := ""
+	numbers := []int{6, 48, 75, 89}
+	for i := 1; i <= 100; i++ {
+		skip := false
+		for _, num := range numbers {
+			if i == num {
+				skip = true
+				break
+			}
+		}
+		if skip {
+			continue
+		}
+		xhtml += strconv.Itoa(i)
+		if i != 100 {
+			xhtml += ","
+		}
 	}
+	println(xhtml)
 }
