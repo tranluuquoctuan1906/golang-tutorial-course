@@ -1,25 +1,22 @@
 package main
 
-import "strconv"
+import (
+	"slices"
+	"strconv"
+	"strings"
+)
 
 func main() {
-	xhtml := ""
+	var xhtml strings.Builder
 	numbers := []int{6, 48, 75, 89}
 	for i := 1; i <= 100; i++ {
-		skip := false
-		for _, num := range numbers {
-			if i == num {
-				skip = true
-				break
-			}
-		}
-		if skip {
+		if slices.Contains(numbers, i) {
 			continue
 		}
-		xhtml += strconv.Itoa(i)
+		xhtml.WriteString(strconv.Itoa(i))
 		if i != 100 {
-			xhtml += ","
+			xhtml.WriteString(",")
 		}
 	}
-	println(xhtml)
+	println(xhtml.String())
 }
