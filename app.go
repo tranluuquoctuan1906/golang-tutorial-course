@@ -2,22 +2,24 @@ package main
 
 import "fmt"
 
-func sumToN(n int) int {
+func fibonacci(n int) int {
 	if n == 0 {
 		return 0
 	}
-	return n + sumToN(n-1)
+	if n == 1 {
+		return 1
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
 }
 
 func main() {
 	var n int
-	fmt.Print("Enter a number: ")
-	_, err := fmt.Scan(&n)
-	if err != nil {
-		fmt.Println("Invalid input. Please enter an integer.")
-		fmt.Println(err)
+	fmt.Printf("Enter a positive integer: ")
+	fmt.Scan(&n)
+	if n < 0 {
+		fmt.Println("Please enter a non-negative integer.")
 		return
 	}
-	result := sumToN(n)
-	fmt.Printf("The sum of numbers from 1 to %d is %d\n", n, result)
+	result := fibonacci(n)
+	fmt.Printf("Fibonacci(%d) = %d\n", n, result)
 }
