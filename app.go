@@ -1,23 +1,23 @@
 package main
 
-func sum(a int, b int) (int, int) {
-	sum := a + b
-	diff := a - b
-	return sum, diff
-}
+import "fmt"
 
-func countdown(n int) {
-	if n <= 0 {
-		println("Done!")
-		return
+func sumToN(n int) int {
+	if n == 0 {
+		return 0
 	}
-	println(n)
-	countdown(n - 1)
+	return n + sumToN(n-1)
 }
 
 func main() {
-	sum, diff := sum(3, 5)
-	println("The sum is:", sum)
-	println("The difference is:", diff)
-	countdown(10)
+	var n int
+	fmt.Print("Enter a number: ")
+	_, err := fmt.Scan(&n)
+	if err != nil {
+		fmt.Println("Invalid input. Please enter an integer.")
+		fmt.Println(err)
+		return
+	}
+	result := sumToN(n)
+	fmt.Printf("The sum of numbers from 1 to %d is %d\n", n, result)
 }
