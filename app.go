@@ -1,20 +1,21 @@
 package main
 
-import "fmt"
+type User struct {
+	name  string
+	age   int
+	phone string
+}
 
-func updateVariable(name *string) {
-	*name = "Tran Thi B"
-	fmt.Println("After changing value of name variable")
-	fmt.Printf("Type of name variable: %T\n", name)
-	fmt.Printf("Value of name variable: %v\n", *name)
-	fmt.Printf("Address of name variable: %p\n", name)
+func showUserInfo(u *User) {
+	println("Name:", u.name)
+	println("Age:", u.age)
+	println("Phone:", u.phone)
 }
 
 func main() {
-	name := "Nguyen Van A"
-	fmt.Println("Information of variable")
-	fmt.Printf("Type of name variable: %T\n", name)
-	fmt.Printf("Value of name variable: %v\n", name)
-	fmt.Printf("Address of name variable: %p\n", &name)
-	updateVariable(&name)
+	user := User{name: "Alice", age: 30, phone: "123-456-7890"}
+	showUserInfo(&user)
+
+	mina := User{name: "Mina", age: 25, phone: "098-765-4321"}
+	showUserInfo(&mina)
 }
