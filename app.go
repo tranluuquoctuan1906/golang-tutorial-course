@@ -30,7 +30,6 @@ func main() {
 			fmt.Println("⚠️ Invalid input")
 		} else if rect.width <= 0 || rect.height <= 0 {
 			fmt.Println("⚠️ Width and height must be positive integers")
-			fmt.Println("Width and height must be positive integers")
 		} else {
 			rect.Area()
 			rect.Perimeter()
