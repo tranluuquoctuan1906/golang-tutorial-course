@@ -6,16 +6,21 @@ type User struct {
 	phone string
 }
 
-func showUserInfo(u *User) {
+func (u *User) showInfo() {
 	println("Name:", u.name)
 	println("Age:", u.age)
 	println("Phone:", u.phone)
 }
 
+func (u *User) resetUser() {
+	u.name = ""
+	u.age = 0
+	u.phone = ""
+}
+
 func main() {
 	user := User{name: "Alice", age: 30, phone: "123-456-7890"}
-	showUserInfo(&user)
-
-	mina := User{name: "Mina", age: 25, phone: "098-765-4321"}
-	showUserInfo(&mina)
+	user.showInfo()
+	user.resetUser()
+	user.showInfo()
 }
