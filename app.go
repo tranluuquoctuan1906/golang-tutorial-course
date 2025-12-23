@@ -1,26 +1,27 @@
 package main
 
+import "encoding/json"
+
 type User struct {
-	name  string
-	age   int
-	phone string
+	Name  string
+	Age   int
+	Phone string
 }
 
 func (u *User) showInfo() {
-	println("Name:", u.name)
-	println("Age:", u.age)
-	println("Phone:", u.phone)
+	println("Name:", u.Name)
+	println("Age:", u.Age)
+	println("Phone:", u.Phone)
 }
 
 func (u *User) resetUser() {
-	u.name = ""
-	u.age = 0
-	u.phone = ""
+	u.Name = ""
+	u.Age = 0
+	u.Phone = ""
 }
 
 func main() {
-	user := User{name: "Alice", age: 30, phone: "123-456-7890"}
-	user.showInfo()
-	user.resetUser()
-	user.showInfo()
+	user := User{Name: "Alice", Age: 30, Phone: "123-456-7890"}
+	output, _ := json.Marshal(user)
+	println(string(output))
 }
