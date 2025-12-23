@@ -1,3 +1,3 @@
-module example/m
+module golang-tutorial-course
 
 go 1.25.5

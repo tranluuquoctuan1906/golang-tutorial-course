@@ -1,39 +1,21 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"os"
+	"golang-tutorial-course/cat"
+	"golang-tutorial-course/dog"
 )
 
-type Rectangle struct {
-	width  int
-	height int
-}
-
-func (r *Rectangle) Area() {
-	fmt.Println("Area:", r.width*r.height)
-}
-
-func (r *Rectangle) Perimeter() {
-	fmt.Println("Perimeter:", 2*(r.width+r.height))
-}
-
 func main() {
-	var rect Rectangle
-	reader := bufio.NewReader(os.Stdin)
-	for {
-		fmt.Println("Please enter width and height of the rectangle:")
-		input, _ := reader.ReadString('\n')
-		_, err := fmt.Sscanf(input, "%d %d", &rect.width, &rect.height)
-		if err != nil {
-			fmt.Println("⚠️ Invalid input")
-		} else if rect.width <= 0 || rect.height <= 0 {
-			fmt.Println("⚠️ Width and height must be positive integers")
-		} else {
-			rect.Area()
-			rect.Perimeter()
-			break
-		}
-	}
+	myDog := dog.New(
+		"Buddy",
+		"Golden Retriever",
+		3,
+	)
+	myCat := cat.New(
+		"Whiskers",
+		"Tabby",
+		2,
+	)
+	println(myDog.Bark())
+	println(myCat.Meow())
 }
