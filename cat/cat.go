@@ -14,6 +14,10 @@ func New(name, color string, age int) Cat {
 	}
 }
 
-func (c Cat) Meow() string {
+func (c Cat) GetName() string {
+	return c.Name
+}
+
+func (c Cat) Speak() string {
 	return "Meow!"
 }

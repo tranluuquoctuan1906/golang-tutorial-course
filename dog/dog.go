@@ -14,6 +14,10 @@ func New(name, breed string, age int) Dog {
 	}
 }
 
-func (d Dog) Bark() string {
+func (d Dog) GetName() string {
+	return d.Name
+}
+
+func (d Dog) Speak() string {
 	return "Woof!"
 }

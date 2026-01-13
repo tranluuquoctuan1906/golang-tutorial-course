@@ -1,9 +1,20 @@
 package main
 
 import (
+	"fmt"
 	"golang-tutorial-course/cat"
 	"golang-tutorial-course/dog"
 )
+
+type Animal interface {
+	Speak() string
+	GetName() string
+}
+
+func makeSound(a Animal) {
+	fmt.Printf("The animal's name is: %s\n", a.GetName())
+	fmt.Printf("%s says: %s\n", a.GetName(), a.Speak())
+}
 
 func main() {
 	myDog := dog.New(
@@ -16,6 +27,6 @@ func main() {
 		"Tabby",
 		2,
 	)
-	println(myDog.Bark())
-	println(myCat.Meow())
+	makeSound(myDog)
+	makeSound(myCat)
 }
