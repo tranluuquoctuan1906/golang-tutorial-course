@@ -4,29 +4,36 @@ import (
 	"fmt"
 	"golang-tutorial-course/cat"
 	"golang-tutorial-course/dog"
+	"golang-tutorial-course/service"
 )
 
-type Animal interface {
-	Speak() string
-	GetName() string
-}
-
-func makeSound(a Animal) {
+func makeSound(a service.Animal) {
 	fmt.Printf("The animal's name is: %s\n", a.GetName())
 	fmt.Printf("%s says: %s\n", a.GetName(), a.Speak())
 }
 
+func makeEat(a service.AnimalWithEat, food string) {
+	fmt.Printf("The animal's name is: %s\n", a.GetName())
+	fmt.Printf("%s\n", a.Eat(food))
+}
+
 func main() {
-	myDog := dog.New(
+	myDog, err := dog.New(
 		"Buddy",
 		"Golden Retriever",
 		3,
 	)
-	myCat := cat.New(
+	if err != nil {
+		panic(err)
+	}
+	myCat, err := cat.New(
 		"Whiskers",
 		"Tabby",
 		2,
 	)
+	if err != nil {
+		panic(err)
+	}
 	makeSound(myDog)
-	makeSound(myCat)
+	makeEat(myCat, "fish")
 }
